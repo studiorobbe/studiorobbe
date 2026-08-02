@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://studiorobbe.github.io/studiorobbe/sitemap-index.xml
+Sitemap: https://www.studiorob.be/sitemap-index.xml

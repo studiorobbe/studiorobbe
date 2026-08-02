@@ -23,8 +23,8 @@ Pushes to `main` are deployed automatically to GitHub Pages through the workflow
 
 Before the first deployment, set the repository's **Settings > Pages > Source** to **GitHub Actions**.
 
-The temporary GitHub Pages address is:
+The website address is:
 
-`https://studiorobbe.github.io/studiorobbe/`
+`https://www.studiorob.be/`
 
-The Astro `site` and `base` settings can be updated when the custom domain is connected.
+The custom domain is configured through GitHub Pages.

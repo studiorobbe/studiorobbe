@@ -4,7 +4,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://studiorobbe.github.io',
-	base: '/studiorobbe',
+	site: 'https://www.studiorob.be',
 	integrations: [sitemap()],
 });
