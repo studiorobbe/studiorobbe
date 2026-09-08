@@ -1,0 +1,67 @@
+---
+// Only a public form-ID URL belongs here. The recipient is configured in Formspree.
+const endpoint = 'https://formspree.io/f/moeqpkyz';
+if (!/^https:\/\/formspree\.io\/f\/[a-zA-Z0-9]+$/.test(endpoint)) {
+  throw new Error('Contact endpoint must be a Formspree form-ID URL.');
+}
+---
+<section id="contact" aria-labelledby="contact-heading">
+  <h2 id="contact-heading">Get in touch</h2>
+  <p>Tell me about your project.</p>
+  <form id="contact-form" action={endpoint} method="POST">
+    <p class="hint">All fields are required unless marked optional.</p>
+    <div class="fields">
+      <div>
+        <label for="name">Name</label>
+        <input id="name" name="name" autocomplete="name" required maxlength="120" />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required maxlength="254" />
+      </div>
+    </div>
+    <div>
+      <label for="company">Company <span>(optional)</span></label>
+      <input id="company" name="company" autocomplete="organization" maxlength="160" />
+    </div>
+    <div>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required maxlength="5000" rows="5"></textarea>
+    </div>
+    <div class="honeypot" aria-hidden="true">
+      <label for="website">Leave this field empty</label>
+      <input id="website" name="_gotcha" tabindex="-1" autocomplete="off" />
+    </div>
+    <p class="hint">Your details will be processed by Formspree so I can reply to your enquiry.</p>
+    <button type="submit">Send message</button>
+    <p id="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+    <button id="secure-submit" type="button" hidden>Continue with secure submission</button>
+    <noscript><p class="hint">Submitting opens Formspree’s secure confirmation page.</p></noscript>
+  </form>
+</section>
+<script>
+  import { setupContactForm } from '../scripts/contact-form.js';
+  setupContactForm(document.querySelector('#contact-form'));
+</script>
+<style>
+  section { width: 100%; max-width: 38rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #c6c3bd; }
+  h2 { margin: 0; font-size: 1.5rem; font-weight: 500; letter-spacing: -0.03em; }
+  p { margin: 0.75rem 0 0; line-height: 1.5; }
+  form { display: grid; gap: 1.25rem; margin-top: 1.5rem; }
+  .fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  label { display: block; margin-bottom: 0.5rem; font-size: 0.875rem; }
+  label span, .hint { color: #56534e; }
+  .hint { margin: 0; font-size: 0.875rem; }
+  input, textarea { display: block; width: 100%; min-width: 0; padding: 0.75rem; border: 1px solid #8c8983; border-radius: 0; background: transparent; color: inherit; font: inherit; font-size: 1rem; }
+  textarea { resize: vertical; min-height: 8rem; }
+  input:focus-visible, textarea:focus-visible, button:focus-visible { outline: 2px solid #111; outline-offset: 3px; }
+  button { justify-self: start; min-height: 44px; padding: 0.75rem 1.25rem; border: 1px solid #111; border-radius: 0; color: #f5f3ee; background: #111; font: inherit; cursor: pointer; }
+  button:hover:not(:disabled) { background: #383631; }
+  button:disabled { opacity: 0.55; cursor: not-allowed; }
+  #secure-submit { color: #111; background: transparent; }
+  #form-status { margin: 0; min-height: 1.5em; font-size: 0.875rem; }
+  #form-status[data-state='error'] { color: #962a20; }
+  #form-status[data-state='success'] { color: #285738; }
+  .honeypot { display: none; }
+  @media (max-width: 32rem) { .fields { grid-template-columns: 1fr; } }
+</style>

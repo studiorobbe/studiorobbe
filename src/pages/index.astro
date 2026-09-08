@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
 
 const currentYear = new Date().getFullYear();
 ---
@@ -11,6 +12,7 @@ const currentYear = new Date().getFullYear();
 	<main>
 		<h1>studio rob•be</h1>
 		<p>Coming Soon</p>
+		<ContactForm />
 	</main>
 	<footer>&copy; {currentYear} studio rob•be</footer>
 </BaseLayout>
