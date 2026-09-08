@@ -64,7 +64,7 @@ found in these text resources or in the site's source and built text assets.
 This covers the current discoverable site, not historical deployments, Git history,
 search-engine caches, or unknown unlinked URLs.
 
-### Review state
+### Deployment notes
 
-Prepared locally only; nothing pushed or deployed. The GitHub Pages workflow is
+Pushing to main publishes the form through GitHub Pages. The workflow is
 unchanged. The separate older Google Drive placeholder was not modified.
